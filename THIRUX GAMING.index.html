@@ -1,0 +1,655 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>THIRUX GAMING | Open World & Racing</title>
+<meta name="description" content="THIRUX GAMING - Explore open-world games, car racing games, game guides and official downloads.">
+
+<style>
+:root {
+    --bg: #080d19;
+    --panel: #111a2c;
+    --cyan: #38e8ff;
+    --muted: #b6c2d4;
+    --border: #263650;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: white;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    background: #0d1525;
+    border-bottom: 1px solid var(--border);
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--cyan);
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--cyan);
+}
+
+.hero {
+    min-height: 440px;
+    padding: 80px 7%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background:
+        linear-gradient(90deg, #080d19 5%,
+        rgba(8,13,25,.80), rgba(8,13,25,.35)),
+        url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1600&q=85")
+        center/cover;
+}
+
+.hero .tag {
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(36px, 7vw, 65px);
+    line-height: 1.12;
+    margin-bottom: 18px;
+}
+
+.hero h1 span {
+    color: var(--cyan);
+}
+
+.hero p {
+    max-width: 570px;
+    color: #e1e8f2;
+    margin-bottom: 25px;
+}
+
+.button {
+    display: inline-block;
+    padding: 11px 19px;
+    border: none;
+    border-radius: 7px;
+    background: var(--cyan);
+    color: #07111d;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: white;
+}
+
+.button.secondary {
+    background: transparent;
+    color: white;
+    border: 1px solid var(--cyan);
+}
+
+.section {
+    padding: 48px 7%;
+    scroll-margin-top: 90px;
+}
+
+.section h2 {
+    font-size: 29px;
+    margin-bottom: 10px;
+}
+
+.intro {
+    color: var(--muted);
+    margin-bottom: 25px;
+}
+
+.search {
+    width: 100%;
+    max-width: 500px;
+    padding: 14px;
+    margin: 18px 0 25px;
+    background: var(--panel);
+    color: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.games {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(240px, 1fr));
+    gap: 22px;
+}
+
+.game-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform .2s, border-color .2s;
+}
+
+.game-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--cyan);
+}
+
+.game-card img {
+    display: block;
+    width: 100%;
+    height: 175px;
+    object-fit: cover;
+    background: #182338;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.tag {
+    color: var(--cyan);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.game-card h3 {
+    margin: 8px 0;
+    font-size: 21px;
+}
+
+.game-card p {
+    color: var(--muted);
+    margin-bottom: 18px;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.details {
+    background: #0d1423;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.detail-content {
+    max-width: 850px;
+}
+
+.detail-content h3 {
+    color: var(--cyan);
+    margin: 24px 0 8px;
+}
+
+.detail-content p,
+.detail-content li {
+    color: var(--muted);
+}
+
+.detail-content ul {
+    padding-left: 22px;
+    margin: 10px 0 20px;
+}
+
+.notice {
+    background: var(--panel);
+    border-left: 3px solid var(--cyan);
+    padding: 16px;
+    border-radius: 5px;
+    color: var(--muted);
+    margin-top: 22px;
+}
+
+footer {
+    background: #0d1525;
+    text-align: center;
+    padding: 30px 7%;
+    color: var(--muted);
+}
+
+footer a {
+    color: var(--cyan);
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 15px 5%;
+    }
+
+    .hero {
+        min-height: 360px;
+        padding: 55px 5%;
+    }
+
+    .section {
+        padding: 35px 5%;
+    }
+
+    nav {
+        gap: 12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a class="logo" href="#home">🎮 THIRUX GAMING</a>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#openworld">Open World</a>
+        <a href="#racing">Racing</a>
+        <a href="#downloads">Downloads</a>
+        <a href="#about">About</a>
+    </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+    <div class="tag">YOUR NEXT ADVENTURE STARTS HERE</div>
+
+    <h1>PLAY BIG.<br><span>RACE FAST.</span></h1>
+
+    <p>
+        Discover open-world adventures, exciting car racing,
+        classic games, and official download pages.
+        Welcome to your gaming world.
+    </p>
+
+    <div class="actions">
+        <a class="button" href="#openworld">Explore Games</a>
+        <a class="button secondary" href="#downloads">Free Downloads</a>
+    </div>
+</section>
+
+<section class="section" id="openworld">
+    <h2>🚔 Open-World Games</h2>
+    <p class="intro">
+        Explore cities, drive vehicles, and discover
+        open-world adventures.
+    </p>
+
+    <input
+        type="search"
+        class="search"
+        id="gameSearch"
+        placeholder="Search games..."
+        aria-label="Search games"
+    >
+
+    <div class="games" id="openWorldGames">
+
+        <article class="game-card" data-search="gta vice city open world action">
+            <img
+                src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=800&q=80"
+                alt="Night city lights"
+                loading="lazy">
+
+            <div class="card-content">
+                <div class="tag">OPEN WORLD / ACTION</div>
+                <h3>GTA: Vice City</h3>
+                <p>
+                    Explore a classic crime-action game
+                    set in a colourful fictional city.
+                </p>
+                <div class="actions">
+                    <a class="button"
+                       href="#gtaInfo">Game Info</a>
+                    <a class="button secondary"
+                       href="https://www.rockstargames.com/games/ViceCity/"
+                       target="_blank"
+                       rel="noopener noreferrer">Official Site</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="game-card" data-search="luanti minetest block building exploration">
+            <img
+                src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=800&q=80"
+                alt="Landscape for exploration"
+                loading="lazy">
+
+            <div class="card-content">
+                <div class="tag">BUILD / EXPLORE</div>
+                <h3>Luanti</h3>
+                <p>
+                    Explore block-based worlds and
+                    build your own adventures.
+                </p>
+                <div class="actions">
+                    <a class="button"
+                       href="#luantiInfo">Game Info</a>
+                    <a class="button secondary"
+                       href="https://www.luanti.org/en/downloads/"
+                       target="_blank"
+                       rel="noopener noreferrer">Download</a>
+                </div>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<section class="section" id="racing">
+    <h2>🏎️ Racing Zone</h2>
+    <p class="intro">
+        Discover speed, racing challenges, and arcade fun.
+    </p>
+
+    <div class="games" id="racingGames">
+
+        <article class="game-card" data-search="trackmania nations forever racing cars">
+            <img
+                src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=800&q=80"
+                alt="Sports car"
+                loading="lazy">
+
+            <div class="card-content">
+                <div class="tag">ARCADE / TIME TRIALS</div>
+                <h3>TrackMania Nations Forever</h3>
+                <p>
+                    Race through challenging tracks,
+                    jumps, and loops.
+                </p>
+                <div class="actions">
+                    <a class="button"
+                       href="#trackmaniaInfo">Game Info</a>
+                    <a class="button secondary"
+                       href="https://www.trackmaniaforever.com/"
+                       target="_blank"
+                       rel="noopener noreferrer">Official Site</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="game-card" data-search="supertuxkart kart racing">
+            <img
+                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80"
+                alt="Car ready for a race"
+                loading="lazy">
+
+            <div class="card-content">
+                <div class="tag">KART RACING</div>
+                <h3>SuperTuxKart</h3>
+                <p>
+                    Enjoy colourful tracks and
+                    exciting kart-racing modes.
+                </p>
+                <div class="actions">
+                    <a class="button"
+                       href="#kartInfo">Game Info</a>
+                    <a class="button secondary"
+                       href="https://supertuxkart.net/Download"
+                       target="_blank"
+                       rel="noopener noreferrer">Download</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="game-card" data-search="0ad strategy historical empire">
+            <img
+                src="https://images.unsplash.com/photo-1461360228754-6e81c478b882?auto=format&fit=crop&w=800&q=80"
+                alt="Historical architecture"
+                loading="lazy">
+
+            <div class="card-content">
+                <div class="tag">STRATEGY</div>
+                <h3>0 A.D.</h3>
+                <p>
+                    Build an empire in a historical
+                    real-time strategy game.
+                </p>
+                <div class="actions">
+                    <a class="button"
+                       href="#strategyInfo">Game Info</a>
+                    <a class="button secondary"
+                       href="https://play0ad.com/download/"
+                       target="_blank"
+                       rel="noopener noreferrer">Download</a>
+                </div>
+            </div>
+        </article>
+
+    </div>
+
+    <p id="noResults" class="intro" hidden>
+        No games found. Try another search.
+    </p>
+</section>
+
+<section class="section details" id="downloads">
+    <h2>📥 Official Game Downloads</h2>
+    <p class="intro">
+        These games offer official download pages.
+        Check each game's system requirements before installing.
+    </p>
+
+    <div class="games">
+
+        <article class="game-card">
+            <div class="card-content">
+                <div class="tag">2D PLATFORMER</div>
+                <h3>SuperTux</h3>
+                <p>A classic free platform game.</p>
+                <a class="button"
+                   href="https://www.supertux.org/download"
+                   target="_blank"
+                   rel="noopener noreferrer">Official Download</a>
+            </div>
+        </article>
+
+        <article class="game-card">
+            <div class="card-content">
+                <div class="tag">BUILD / EXPLORE</div>
+                <h3>Luanti</h3>
+                <p>Explore worlds and create structures.</p>
+                <a class="button"
+                   href="https://www.luanti.org/en/downloads/"
+                   target="_blank"
+                   rel="noopener noreferrer">Official Download</a>
+            </div>
+        </article>
+
+        <article class="game-card">
+            <div class="card-content">
+                <div class="tag">STRATEGY</div>
+                <h3>0 A.D.</h3>
+                <p>A free historical strategy game.</p>
+                <a class="button"
+                   href="https://play0ad.com/download/"
+                   target="_blank"
+                   rel="noopener noreferrer">Official Download</a>
+            </div>
+        </article>
+
+        <article class="game-card">
+            <div class="card-content">
+                <div class="tag">RACING</div>
+                <h3>SuperTuxKart</h3>
+                <p>A free kart-racing game.</p>
+                <a class="button"
+                   href="https://supertuxkart.net/Download"
+                   target="_blank"
+                   rel="noopener noreferrer">Official Download</a>
+            </div>
+        </article>
+
+    </div>
+
+    <div class="notice">
+        Download games from their official websites.
+        THIRUX GAMING does not host installers or claim
+        ownership of these games.
+    </div>
+</section>
+
+<section class="section details" id="gameinfo">
+    <div class="detail-content">
+
+        <h2>📖 Game Information</h2>
+        <p class="intro">
+            Select a game's information below.
+        </p>
+
+        <div id="gtaInfo">
+            <h3>GTA: Vice City</h3>
+            <p>
+                A classic open-world action game featuring
+                city exploration, driving, and story missions.
+                It is a commercial game, so use an authorised
+                source if you want to purchase it.
+            </p>
+            <p>
+                <a href="https://www.rockstargames.com/games/ViceCity/"
+                   target="_blank"
+                   rel="noopener noreferrer">Official game page</a>
+            </p>
+        </div>
+
+        <div id="luantiInfo">
+            <h3>Luanti</h3>
+            <p>
+                An open-source voxel game platform featuring
+                block-based worlds and user-created games.
+                Check the download page for Windows versions.
+            </p>
+            <p>
+                <a href="https://www.luanti.org/en/downloads/"
+                   target="_blank"
+                   rel="noopener noreferrer">Official download</a>
+            </p>
+        </div>
+
+        <div id="trackmaniaInfo">
+            <h3>TrackMania Nations Forever</h3>
+            <p>
+                An arcade racing game built around
+                challenging tracks and time trials.
+                Check current availability and compatibility
+                before installing.
+            </p>
+            <p>
+                <a href="https://www.trackmaniaforever.com/"
+                   target="_blank"
+                   rel="noopener noreferrer">Official website</a>
+            </p>
+        </div>
+
+        <div id="kartInfo">
+            <h3>SuperTuxKart</h3>
+            <p>
+                A free, open-source kart-racing game
+                featuring multiple tracks and game modes.
+            </p>
+            <p>
+                <a href="https://supertuxkart.net/Download"
+                   target="_blank"
+                   rel="noopener noreferrer">Official download</a>
+            </p>
+        </div>
+
+        <div id="strategyInfo">
+            <h3>0 A.D.</h3>
+            <p>
+                A free, open-source historical real-time
+                strategy game. Its system requirements may
+                be higher than those of simpler games.
+            </p>
+            <p>
+                <a href="https://play0ad.com/download/"
+                   target="_blank"
+                   rel="noopener noreferrer">Official download</a>
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="about">
+    <h2>About THIRUX GAMING</h2>
+    <p class="intro">
+        THIRUX GAMING is a fan-made gaming website for
+        open-world adventures, racing games, and gaming guides.
+        Discover games and visit official download sources.
+    </p>
+</section>
+
+</main>
+
+<footer>
+    <p>🎮 THIRUX GAMING</p>
+    <p>Made by a gamer, for gamers.</p>
+    <p>Game names and trademarks belong to their respective owners.</p>
+    <p>© 2026 THIRUX GAMING</p>
+</footer>
+
+<script>
+const searchInput = document.getElementById("gameSearch");
+const cards = document.querySelectorAll("[data-search]");
+const noResults = document.getElementById("noResults");
+
+searchInput.addEventListener("input", function () {
+    const query = searchInput.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    cards.forEach(function (card) {
+        const matches = card.dataset.search.includes(query);
+
+        card.style.display = matches ? "" : "none";
+
+        if (matches) {
+            visibleCount++;
+        }
+    });
+
+    noResults.hidden = visibleCount !== 0;
+});
+</script>
+
+</body>
+</html>
